@@ -1,0 +1,13 @@
+import mongoose from 'mongoose';
+import config from './config';
+
+const run = async () => {
+  await mongoose.connect(config.database)
+  const db = mongoose.connection
+  try {
+await db.dropCollection('users')
+  }catch (e) {
+    console.log('Skipping drop...');
+  }
+
+}
