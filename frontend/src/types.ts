@@ -1,3 +1,10 @@
+export interface Category {
+    _id: string;
+    title: string;
+    description: string | null;
+}
+
+
 export interface RegisterMutation {
     username: string;
     password: string;
