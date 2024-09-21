@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import {deepPurple} from '@mui/material/colors';
 import PersonIcon from '@mui/icons-material/Person';
 import Typography from "@mui/material/Typography";
+import { Link } from 'react-router-dom';
 
 interface Props {
     user: User;
@@ -24,7 +25,7 @@ const UserMenu: React.FC<Props> = ({user}) => {
 
     return (
         <>
-            <Button variant={'contained'} sx={{marginLeft: 'auto', marginRight: '50px'}}>Add new</Button>
+            <Button variant={'contained'} sx={{marginLeft: 'auto', marginRight: '50px'}} component={Link} to={'/products-new'}>Добавить Продукт</Button>
             <Box sx={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                 <Avatar onClick={handleClick} sx={{bgcolor: deepPurple[500]}}><PersonIcon/></Avatar>
                 <Typography>{user.nickname}</Typography>

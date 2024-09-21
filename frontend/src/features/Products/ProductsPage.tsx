@@ -24,7 +24,7 @@ const Products = () => {
 
     let content: React.ReactNode = (
         <Alert severity="info" sx={{width: '100%'}}>
-            There are no products here!
+            Здесь еще нет продуктов!
         </Alert>
     );
 
@@ -38,14 +38,13 @@ const Products = () => {
                 title={product.title}
                 price={product.price}
                 image={product.image}
-                category={product.category?.title}
             />
         ));
     }
 
     const pageTitle = useMemo(() => {
         if (!categoryId) {
-            return 'All products';
+            return 'Все Продукты';
         }
         const category = categories.find((category) => category._id === categoryId);
         if (!category) {

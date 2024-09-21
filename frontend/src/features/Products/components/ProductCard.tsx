@@ -16,10 +16,9 @@ interface Props {
     title: string;
     price: number;
     image: string | null;
-    category: string;
 }
 
-const ProductCard: React.FC<Props> = ({id, title, price, image, category}) => {
+const ProductCard: React.FC<Props> = ({id, title, price, image}) => {
     let cardImage = imageNotFound;
 
     if (image) {
@@ -32,8 +31,7 @@ const ProductCard: React.FC<Props> = ({id, title, price, image, category}) => {
                 <CardHeader title={title}/>
                 <ImageCardMedia image={cardImage} title={title}/>
                 <CardContent>
-                    <p>Category: {category}</p>
-                    <strong>Price: {price} KGS</strong>
+                    <strong>Цена: {price} KGS</strong>
                 </CardContent>
                 <CardActions>
                     <IconButton component={Link} to={`/products/${id}`}>

@@ -11,16 +11,6 @@ const UserSchema = new Schema<UserFields, UserModel, UserMethods>({
     type: String,
     required: false,
     unique: true,
-    validate: {
-      validator: async function (value: string): Promise<boolean> {
-        if (!(this as HydratedDocument<UserFields>).isModified('username')) {
-          return true;
-        }
-        const user = await User.findOne({username: value});
-        return !user;
-      },
-      message: 'This user is already registered!',
-    }
   },
   password: {
     type: String,
@@ -29,6 +19,17 @@ const UserSchema = new Schema<UserFields, UserModel, UserMethods>({
   nickname: {
     type: String,
     required: true,
+    unique: true,
+    validate: {
+      validator: async function (value: string): Promise<boolean> {
+        if (!(this as HydratedDocument<UserFields>).isModified('nickname')) {
+          return true;
+        }
+        const user = await User.findOne({nickname: value});
+        return !user;
+      },
+      message: 'This nickname is already registered!',
+    }
   },
   phoneNumber: {
     type: String,
