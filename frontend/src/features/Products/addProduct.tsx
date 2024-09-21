@@ -29,7 +29,7 @@ const NewProduct = () => {
 
     return (
         <>
-            <Typography variant="h4" sx={{mb: 2}}>
+            <Typography variant="h4" sx={{mb: 2, marginLeft: '40px', marginTop: '40px'}}>
                 New product
             </Typography>
             <ProductForm onSubmit={onFormSubmit} isLoading={isCreating}/>

@@ -34,7 +34,7 @@ const ProductForm: React.FC<Props> = ({onSubmit, isLoading}) => {
         price: '',
         image: null,
     });
-    
+
     const [descriptionError, setDescriptionError] = useState<string | null>(null);
     const [imageError, setImageError] = useState<string | null>(null);
 
@@ -45,6 +45,10 @@ const ProductForm: React.FC<Props> = ({onSubmit, isLoading}) => {
     const submitFormHandler = (event: React.FormEvent) => {
         event.preventDefault();
 
+        if (parseFloat(state.price) <= 0) {
+            alert('Цена не может быть 0 или меньше!');
+            return;
+        }
         if (!state.description) {
             setDescriptionError('Description is required');
             return;
@@ -56,7 +60,7 @@ const ProductForm: React.FC<Props> = ({onSubmit, isLoading}) => {
 
         setImageError(null)
         setDescriptionError(null);
-        onSubmit({...state});
+        onSubmit({...state,});
     };
 
     const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {

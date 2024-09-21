@@ -29,7 +29,7 @@ const Products = () => {
     );
 
     if (isFetching) {
-        content = <CircularProgress/>;
+        content = <div style={{marginTop: '100px',marginLeft:'100px'}}><CircularProgress/></div>;
     } else if (products.length > 0) {
         content = products.map((product) => (
             <ProductCard
@@ -65,7 +65,6 @@ const Products = () => {
                     </Box>
                 </Container>
                 <Container sx={{display:'flex',flexWrap:'wrap',gap:'20px'}}>
-                    {isFetching && <CircularProgress/>}
                     {content}
                 </Container>
             </Container>
