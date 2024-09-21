@@ -4,6 +4,31 @@ export interface Category {
     description: string | null;
 }
 
+export interface Products {
+    _id: string;
+    salesman: {
+        _id: string;
+        nickname: string;
+        phoneNumber: string;
+    }
+    category: {
+        _id: string;
+        title: string;
+    };
+    title: string;
+    description: string;
+    price: number;
+    image: string | null;
+}
+
+export interface ProductMutation {
+    salesman: string;
+    category: string;
+    title: string;
+    description: string;
+    price: string;
+    image: File | null;
+}
 
 export interface RegisterMutation {
     username: string;
@@ -37,6 +62,6 @@ export interface ValidationError {
 }
 
 
-export interface GlobalError  {
+export interface GlobalError {
     error: string;
 }

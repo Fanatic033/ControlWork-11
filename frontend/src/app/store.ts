@@ -4,6 +4,7 @@ import {persistReducer, persistStore} from 'redux-persist';
 import {FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE} from 'redux-persist/es/constants';
 import {usersReducer} from "../features/User/UserSlice.ts";
 import {categoriesReducer} from "../features/Category/CategorySlice.ts";
+import {productsReducer} from "../features/Products/ProductsSlice.ts";
 
 const usersPersistConfig = {
     key: 'controlWork',
@@ -14,6 +15,7 @@ const usersPersistConfig = {
 const rootReducer = {
     users: persistReducer(usersPersistConfig, usersReducer),
     categories: categoriesReducer,
+    products: productsReducer,
 }
 
 export const store = configureStore({

@@ -10,6 +10,7 @@ import UserMenu from './UserMenu.tsx';
 import {useAppSelector} from '../../app/hooks.ts';
 import {selectUser} from '../../features/User/UserSlice.ts';
 import DefaultMenu from './DefaultMenu.tsx';
+import FormatShapesIcon from '@mui/icons-material/FormatShapes';
 
 
 const ResponsiveAppBar = () => {
@@ -20,6 +21,7 @@ const ResponsiveAppBar = () => {
             <Container maxWidth="xl">
                 <Toolbar disableGutters sx={{display: 'flex', justifyContent: 'space-between',}}>
                     <div style={{display: 'flex', alignItems: 'center'}}>
+                        <FormatShapesIcon/>
                         <Typography
                             variant="h6"
                             noWrap
