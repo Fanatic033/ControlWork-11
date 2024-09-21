@@ -47,3 +47,26 @@ export const fetchOneProduct = createAsyncThunk<Products, string>('products/fetc
     const {data: product} = await axiosApi.get<Products>(`/products/${id}`);
     return product;
 });
+
+export const deleteProduct = createAsyncThunk<void, string, {
+    rejectValue: GlobalError, state: RootState
+}>('products/delete', async (id, {rejectWithValue, getState}) => {
+    try {
+        const token = getState().users.user?.token;
+        if (!token) {
+            console.error('No user token found');
+            return;
+        }
+
+        await axiosApi.delete(`/products/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+    } catch (e) {
+        if (isAxiosError(e) && e.response && e.response.status === 404) {
+            return rejectWithValue(e.response.data);
+        }
+        throw e;
+    }
+});

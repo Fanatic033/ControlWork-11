@@ -34,7 +34,7 @@ const ProductForm: React.FC<Props> = ({onSubmit, isLoading}) => {
         price: '',
         image: null,
     });
-
+    
     const [descriptionError, setDescriptionError] = useState<string | null>(null);
     const [imageError, setImageError] = useState<string | null>(null);
 

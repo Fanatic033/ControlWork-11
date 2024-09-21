@@ -54,7 +54,7 @@ const Products = () => {
     }, [categories, categoryId]);
 
     return (
-        <Container sx={{display:'flex'}}>
+        <Container sx={{display:'flex',marginTop:'20px'}}>
             <Box sx={{width: 200}}>
                 <CategoriesMenu categories={categories}/>
             </Box>
@@ -64,7 +64,7 @@ const Products = () => {
                         <Typography variant="h4">{pageTitle}</Typography>
                     </Box>
                 </Container>
-                <Container>
+                <Container sx={{display:'flex',flexWrap:'wrap',gap:'20px'}}>
                     {isFetching && <CircularProgress/>}
                     {content}
                 </Container>

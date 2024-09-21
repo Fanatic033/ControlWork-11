@@ -25,7 +25,7 @@ const UserMenu: React.FC<Props> = ({user}) => {
 
     return (
         <>
-            <Button variant={'contained'} sx={{marginLeft: 'auto', marginRight: '50px'}} component={Link} to={'/products-new'}>Добавить Продукт</Button>
+            <Button variant={'contained'} sx={{marginLeft: 'auto', marginRight: '50px',bgcolor:'white',color:'black'}} component={Link} to={'/products-new'}>Добавить Продукт</Button>
             <Box sx={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                 <Avatar onClick={handleClick} sx={{bgcolor: deepPurple[500]}}><PersonIcon/></Avatar>
                 <Typography>{user.nickname}</Typography>

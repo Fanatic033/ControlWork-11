@@ -1,15 +1,22 @@
 import ProductForm from './components/ProductForm';
 import {Typography} from '@mui/material';
-import {useNavigate} from 'react-router-dom';
+import {Navigate, useNavigate} from 'react-router-dom';
 import {useAppDispatch, useAppSelector} from "../../app/hooks.ts";
 import {selectProductCreating} from "./ProductsSlice.ts";
 import {ProductMutation} from "../../types.ts";
 import {createProduct} from "./ProductsThunks.ts";
+import {selectUser} from "../User/UserSlice.ts";
 
 const NewProduct = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const isCreating = useAppSelector(selectProductCreating);
+    const user = useAppSelector(selectUser);
+
+    if (!user) {
+        return <Navigate to="/"/>;
+    }
+
 
     const onFormSubmit = async (productMutation: ProductMutation) => {
         try {

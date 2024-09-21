@@ -48,7 +48,8 @@ productsRouter.get('/', async (req, res, next) => {
 
 productsRouter.get('/:id', async (req, res, next) => {
   try {
-    const product = await Product.findById(req.params.id);
+    const product = await Product.findById(req.params.id).populate('category', 'title').populate('salesman');
+
 
     if (product === null) {
       return res.status(404).send({error: 'Product not found'});
