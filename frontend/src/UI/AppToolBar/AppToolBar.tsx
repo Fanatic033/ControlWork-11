@@ -16,7 +16,7 @@ const ResponsiveAppBar = () => {
     const user = useAppSelector(selectUser);
 
     return (
-        <AppBar position="static" sx={{bgcolor: 'red'}}>
+        <AppBar position="static" sx={{bgcolor: 'green'}}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters sx={{display: 'flex', justifyContent: 'space-between',}}>
                     <div style={{display: 'flex', alignItems: 'center'}}>
@@ -35,7 +35,7 @@ const ResponsiveAppBar = () => {
                                 textDecoration: 'none',
                             }}
                         >
-                            test
+                            Lalafo
                         </Typography>
 
                     </div>

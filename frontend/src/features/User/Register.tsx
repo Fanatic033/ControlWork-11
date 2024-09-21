@@ -17,6 +17,8 @@ const Register = () => {
     const [state, setState] = useState<RegisterMutation>({
         username: '',
         password: '',
+        nickname: '',
+        phoneNumber: '',
     });
 
     const getFieldError = (fieldName: string) => {
@@ -88,9 +90,33 @@ const Register = () => {
                         margin="normal"
                         error={Boolean(getFieldError('password'))}
                         helperText={getFieldError('password')}
-                    />
+                    /> <TextField
+                    required
+                    type="phoneNumber"
+                    label="phoneNumber"
+                    name="phoneNumber"
+                    autoComplete="new-phoneNumber"
+                    value={state.phoneNumber}
+                    onChange={inputChangeHandler}
+                    fullWidth
+                    margin="normal"
+                    error={Boolean(getFieldError('phoneNumber'))}
+                    helperText={getFieldError('phoneNumber')}
+                /> <TextField
+                    required
+                    type="nickname"
+                    label="Nickname"
+                    name="nickname"
+                    autoComplete="new-nickname"
+                    value={state.nickname}
+                    onChange={inputChangeHandler}
+                    fullWidth
+                    margin="normal"
+                    error={Boolean(getFieldError('nickname'))}
+                    helperText={getFieldError('nickname')}
+                />
                 </Box>
-                <LoadingButton type="submit" fullWidth variant="contained" sx={{mt: 3, mb: 2}} loading={btnLoading} >
+                <LoadingButton type="submit" fullWidth variant="contained" sx={{mt: 3, mb: 2}} loading={btnLoading}>
                     Регистрация
                 </LoadingButton>
                 <Link component={NavLink} to={'/login'} variant="body2" sx={{textDecoration: 'none'}}>

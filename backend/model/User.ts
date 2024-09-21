@@ -9,7 +9,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema<UserFields, UserModel, UserMethods>({
   username: {
     type: String,
-    required: true,
+    required: false,
     unique: true,
     validate: {
       validator: async function (value: string): Promise<boolean> {
@@ -25,6 +25,14 @@ const UserSchema = new Schema<UserFields, UserModel, UserMethods>({
   password: {
     type: String,
     required: true,
+  },
+  nickname: {
+    type: String,
+    required: true,
+  },
+  phoneNumber: {
+    type: String,
+    required: false,
   },
   token: {
     type: String,
